@@ -1,0 +1,11 @@
+<resources>
+    <!--APP NAME-->
+    <string name="app_name">Pizza Hut</string>
+
+    <!--NAV HEADER STRINGS-->
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+
+    <string name="menu_home">Home</string>
+</resources>

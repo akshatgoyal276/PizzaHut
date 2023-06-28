@@ -9,7 +9,7 @@ import retrofit2.http.GET
 
 interface ApiService {
     @GET("api/v1/pizza")
-    fun getPizzaList(): Call<Pizza>
+    fun getPizzaList(): Call<List<Pizza>>
 
 }
 

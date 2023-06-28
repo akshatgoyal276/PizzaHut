@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.app.pizzahut.data.modals.dataModals.Pizza
 import com.app.pizzahut.databinding.PizzaListItemBinding
+import com.app.pizzahut.utils.onClick
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -13,7 +14,7 @@ class PizzaListAdapter @Inject constructor() :
     RecyclerView.Adapter<PizzaListAdapter.PizzaListItemBindViewHolder>() {
 
     private var list = listOf<Pizza>()
-    var onClick: (String) -> Unit = { }
+    var onClick: (Pizza) -> Unit = { }
 
     fun setAdapterList(newList: List<Pizza>) {
         list = newList
@@ -24,7 +25,10 @@ class PizzaListAdapter @Inject constructor() :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(item: Pizza, position: Int) {
-
+            binding.pizza = item
+            binding.root.onClick {
+                onClick(item)
+            }
         }
     }
 

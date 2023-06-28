@@ -1,5 +1,6 @@
 package com.app.pizzahut.data.modals.dataModals
 
+import android.view.View
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
@@ -11,7 +12,15 @@ data class Pizza(
     @Json(name = "description") val description: String = "",
     @Json(name = "defaultCrust") val defaultCrust: String = "",
     @Json(name = "crusts") val crusts: List<Crust>? = null,
-)
+){
+    fun vegVisibility():Int{
+        return if(isVeg == true) View.VISIBLE else View.GONE
+    }
+
+    fun nonVegVisibility():Int{
+        return if(isVeg == false) View.VISIBLE else View.GONE
+    }
+}
 
 @JsonClass(generateAdapter = true)
 data class Crust(

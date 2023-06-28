@@ -22,10 +22,7 @@ android {
         versionName "1.0"
         multiDexEnabled true
 
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-
-        buildConfigField "String", 'API_KEY', '"api-key"'
-        buildConfigField "String", 'BASE_URL', '"https://www.url.com/"'
+        buildConfigField "String", 'BASE_URL', '"https://625bbd9d50128c570206e502.mockapi.io/"'
     }
 
     buildTypes {

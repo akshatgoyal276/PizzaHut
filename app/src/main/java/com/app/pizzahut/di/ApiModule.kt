@@ -44,7 +44,6 @@ object ApiModule {
             val url = chain.request()
                 .url
                 .newBuilder()
-                .addQueryParameter("api_key", BuildConfig.API_KEY)
                 .build()
 
             val request = chain.request()
@@ -87,7 +86,7 @@ object ApiModule {
         client: OkHttpClient
     ): ApiService {
         return Retrofit.Builder()
-            .baseUrl("$baseUrl:${80}/")
+            .baseUrl(baseUrl)
             .client(client)
             .addConverterFactory(GsonConverterFactory.create(gson))
             .addConverterFactory(MoshiConverterFactory.create())

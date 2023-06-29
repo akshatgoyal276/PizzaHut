@@ -10,6 +10,7 @@ import com.app.pizzahut.adapter.PizzaListAdapter
 import com.app.pizzahut.data.modals.dataModals.Pizza
 import com.app.pizzahut.databinding.FragmentMainBinding
 import dagger.hilt.android.AndroidEntryPoint
+import okhttp3.internal.notify
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -42,6 +43,9 @@ class MainFragment : Fragment() {
         viewModel.getPizzaList()
         viewModel.list.observe(viewLifecycleOwner) {
             adapter.setAdapterList(it)
+        }
+        viewModel.selectedPizzaList.observe(viewLifecycleOwner){
+            binding.invalidateAll()
         }
         super.onResume()
     }

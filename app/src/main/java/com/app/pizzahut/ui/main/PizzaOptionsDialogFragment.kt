@@ -3,6 +3,7 @@ package com.app.pizzahut.ui.main
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -33,7 +34,7 @@ class PizzaOptionsDialogFragment(val item: Pizza) : DialogFragment() {
             rvCrustList.adapter = crustAdapter
             rvSizeList.adapter = sizeAdapter
             addToCart.onClick {
-                viewModel.addPizza(item.copy(),crustAdapter.selectedItemId,sizeAdapter.selectedItemId)
+                viewModel.addPizza(item,crustAdapter.selectedItemId,sizeAdapter.selectedItemId)
                 dialog?.cancel()
             }
         }

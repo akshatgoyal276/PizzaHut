@@ -37,7 +37,7 @@ class SelectionAdapter @Inject constructor() :
             binding.apply {
                 itemName.text = item.name
                 isSelected = (item.id == selectedItemId)
-                root.onClick {
+                itemCard.onClick {
                     setSelection(item, position)
                     onClick(item.id)
                 }

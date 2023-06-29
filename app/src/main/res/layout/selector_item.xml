@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="isSelected"
+            type="Boolean" />
+    </data>
+    <com.google.android.material.card.MaterialCardView
+    android:id="@+id/itemCard"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    app:cardBackgroundColor="@{isSelected? @color/base_red : @color/white }"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="0dp"
+    app:strokeColor="@color/black"
+    app:strokeWidth=".5dp">
+
+    <TextView
+        android:id="@+id/itemName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="4dp"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp"
+        android:textAppearance="@style/Default"
+        android:textColor="@{isSelected? @color/white : @color/base_red }"
+        tools:text="Item Name" />
+</com.google.android.material.card.MaterialCardView>
+</layout>

@@ -11,7 +11,7 @@ data class Pizza(
     @Json(name = "isVeg") val isVeg: Boolean? = null,
     @Json(name = "description") val description: String = "",
     @Json(name = "defaultCrust") val defaultCrust: String = "",
-    @Json(name = "crusts") val crusts: List<Crust>? = null,
+    @Json(name = "crusts") val crusts: MutableList<Crust>? = null,
 ){
     fun vegVisibility():Int{
         return if(isVeg == true) View.VISIBLE else View.GONE
@@ -27,7 +27,7 @@ data class Crust(
     @Json(name = "id") val id: String = "",
     @Json(name = "name") val name: String = "",
     @Json(name = "defaultSize") val defaultSize: String? = null,
-    @Json(name = "sizes") val sizes: List<Size>? = null,
+    @Json(name = "sizes") val sizes: MutableList<Size>? = null,
 )
 
 @JsonClass(generateAdapter = true)

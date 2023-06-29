@@ -1,19 +1,14 @@
 package com.app.pizzahut.ui.main
 
-import android.app.Dialog
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.ViewModelProvider
-import com.app.pizzahut.MainActivity
 import com.app.pizzahut.adapter.PizzaListAdapter
 import com.app.pizzahut.data.modals.dataModals.Pizza
 import com.app.pizzahut.databinding.FragmentMainBinding
-import com.app.pizzahut.databinding.PizzaListItemBinding
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
@@ -35,15 +30,20 @@ class MainFragment : Fragment() {
         adapter.onClick = {
             openPizzaOptions(it)
         }
-        viewModel.getPizzaList()
-        viewModel.list.observe(viewLifecycleOwner){
-            adapter.setAdapterList(it)
-        }
+        binding.vm = viewModel
         return binding.root
     }
 
-    private fun openPizzaOptions(item:Pizza){
-        PizzaOptionsDialogFragment.newInstance().show(MainActivity.activity.supportFragmentManager,"Options Dialog Fragment")
+    private fun openPizzaOptions(item: Pizza) {
+        PizzaOptionsDialogFragment(item).show(parentFragmentManager, "Options Dialog Fragment")
+    }
+
+    override fun onResume() {
+        viewModel.getPizzaList()
+        viewModel.list.observe(viewLifecycleOwner) {
+            adapter.setAdapterList(it)
+        }
+        super.onResume()
     }
 
 }

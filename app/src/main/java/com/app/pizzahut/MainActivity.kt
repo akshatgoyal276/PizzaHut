@@ -1,25 +1,22 @@
 package com.app.pizzahut
 
 import android.os.Bundle
-import androidx.activity.viewModels
-import androidx.navigation.ui.setupWithNavController
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.activityViewModels
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
+import androidx.navigation.ui.setupWithNavController
 import com.app.pizzahut.databinding.ActivityMainBinding
-import com.app.pizzahut.ui.main.MainViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
-    companion object{
-        lateinit var activity : MainActivity
+    companion object {
+        lateinit var activity: MainActivity
     }
 
     private lateinit var binding: ActivityMainBinding
@@ -38,14 +35,20 @@ class MainActivity : AppCompatActivity() {
         appBarConfiguration = AppBarConfiguration(
             setOf(
                 R.id.mainFragment
-            ),  binding.drawerLayout
+            ), binding.drawerLayout
         )
         setupActionBarWithNavController(getNavController(), appBarConfiguration)
         binding.navView.setupWithNavController(getNavController())
     }
 
+    override fun onResume() {
+        activity = this
+        super.onResume()
+    }
+
     private fun getNavController(): NavController {
-        val navHostFragment = supportFragmentManager.findFragmentById(R.id.navHostFragment) as NavHostFragment
+        val navHostFragment =
+            supportFragmentManager.findFragmentById(R.id.navHostFragment) as NavHostFragment
         return navHostFragment.navController
     }
 

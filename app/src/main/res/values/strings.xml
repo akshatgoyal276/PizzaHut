@@ -8,4 +8,8 @@
     <string name="nav_header_desc">Navigation header</string>
 
     <string name="menu_home">Home</string>
+    <string name="view_cart">View Cart</string>
+    <string name="select_crust">Select Crust</string>
+    <string name="select_size">Select Size</string>
+    <string name="add_to_cart">Add to Cart</string>
 </resources>

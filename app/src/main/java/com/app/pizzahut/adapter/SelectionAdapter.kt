@@ -21,7 +21,7 @@ class SelectionAdapter @Inject constructor() :
 
     fun setAdapterList(newList: List<SelectionItem>) {
         list = newList
-        notifyItemRangeChanged(0, list.size)
+        notifyDataSetChanged()
     }
 
     fun setSelection(item: SelectionItem, position: Int) {

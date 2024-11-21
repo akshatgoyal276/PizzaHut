@@ -22,7 +22,7 @@ android {
         versionName "1.0"
         multiDexEnabled true
 
-        buildConfigField "String", 'BASE_URL', '"https://625bbd9d50128c570206e502.mockapi.io/"'
+        buildConfigField "String", 'BASE_URL', '"https://673b388c339a4ce4451b32c4.mockapi.io/"'
     }
 
     buildTypes {
@@ -39,11 +39,11 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_17
-        targetCompatibility JavaVersion.VERSION_17
+        sourceCompatibility JavaVersion.VERSION_18
+        targetCompatibility JavaVersion.VERSION_18
     }
     kotlinOptions {
-        jvmTarget = '17'
+        jvmTarget = '18'
     }
     buildFeatures {
         dataBinding true

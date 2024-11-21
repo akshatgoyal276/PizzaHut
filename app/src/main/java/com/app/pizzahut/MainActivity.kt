@@ -1,5 +1,7 @@
 package com.app.pizzahut
 
+import android.content.res.ColorStateList
+import android.graphics.Color
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
@@ -34,10 +36,38 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(binding.appBarMain.toolbar)
         appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.mainFragment
-            ), binding.drawerLayout
+                R.id.mainFragment,
+                R.id.favoriteFragment,
+                R.id.ordersFragment,
+                R.id.moreFragment
+            )
         )
         setupActionBarWithNavController(getNavController(), appBarConfiguration)
+        binding.appBarMain.bottomNavView.apply {
+            setupWithNavController(getNavController())
+            setOnItemSelectedListener {
+                when (it.itemId) {
+                    R.id.bottom_nav_home -> {
+                        getNavController().navigate(R.id.mainFragment)
+                        true
+                    }
+                    R.id.bottom_nav_fav -> {
+                        getNavController().navigate(R.id.favoriteFragment)
+                        true
+                    }
+                    R.id.bottom_nav_orders -> {
+                        getNavController().navigate(R.id.ordersFragment)
+                        true
+                    }
+                    R.id.bottom_nav_more -> {
+                        getNavController().navigate(R.id.moreFragment)
+                        true
+                    }
+
+                    else -> false
+                }
+            }
+        }
         binding.navView.setupWithNavController(getNavController())
     }
 

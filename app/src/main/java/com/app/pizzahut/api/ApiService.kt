@@ -1,16 +1,24 @@
 package com.app.pizzahut.api
 
 import android.util.Log
+import com.app.pizzahut.data.modals.dataModals.Dish
+import com.app.pizzahut.data.modals.dataModals.Order
 import com.app.pizzahut.data.modals.dataModals.Pizza
+import com.app.pizzahut.data.modals.dataModals.Restaurant
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.http.GET
 
 interface ApiService {
-    @GET("api/v1/pizza")
-    fun getPizzaList(): Call<List<Pizza>>
+    @GET("test/restaurants")
+    fun getRestaurantList(): Call<List<Restaurant>>
 
+    @GET("test/orders")
+    fun getOrdersList(): Call<List<Order>>
+
+    @GET("test/dishes")
+    fun getDishesList(): Call<List<Dish>>
 }
 
 fun <T> Call<T>.enqueue(onComplete: (T?) -> Unit) {

@@ -38,4 +38,11 @@
         <item name="android:textSize">16sp</item>
         <item name="android:fontFamily">sans-serif</item>
     </style>
+
+    <style name="EditTextStyle">
+        <item name="android:background">@null</item>
+        <item name="singleLine">true</item>
+        <item name="maxLines">1</item>
+        <item name="android:textColorHint">@color/grey</item>
+    </style>
 </resources>

@@ -40,7 +40,7 @@ class MainFragment : Fragment() {
     }
 
     override fun onResume() {
-        viewModel.getPizzaList()
+//        viewModel.getPizzaList()
         viewModel.list.observe(viewLifecycleOwner) {
             adapter.setAdapterList(it)
         }

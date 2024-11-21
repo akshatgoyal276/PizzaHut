@@ -10,5 +10,7 @@ class ApiRepository
 @Inject constructor(
     private val apiServices: ApiService
 ) {
-    fun getPizzaList() = apiServices.getPizzaList()
+    fun getRestaurantList() = apiServices.getRestaurantList()
+
+    fun getOrdersList() = apiServices.getOrdersList()
 }

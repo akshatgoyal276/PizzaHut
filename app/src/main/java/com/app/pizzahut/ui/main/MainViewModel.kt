@@ -24,11 +24,16 @@ class MainViewModel @Inject constructor() : ViewModel() {
     val list: LiveData<List<Pizza>> = _list
 
     fun getPizzaList() {
-        repo.getPizzaList().enqueue {
-            it?.let {
-                _list.value = it
-            }
-        }
+        val list = listOf(
+            Pizza(id = "1", name = "Margherita",isVeg = true, description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry",),
+            Pizza(),
+        )
+        _list.value = list
+//        repo.getPizzaList().enqueue {
+//            it?.let {
+//                _list.value = it
+//            }
+//        }
     }
 
     fun addPizza(item: Pizza, crustId: String, sizeId: String){
